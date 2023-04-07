@@ -1,3 +1,4 @@
+import GenderViewVue from '@/views/GenderView.vue'
 import HomeViewVue from '@/views/HomeView.vue'
 import SlidesViewVue from '@/views/SlidesView.vue'
 import SplashViewVue from '@/views/SplashView.vue'
@@ -21,6 +22,11 @@ const router = createRouter({
       path: '/slides',
       name: 'threeSlides',
       component: SlidesViewVue
+    },
+    {
+      path: '/gender',
+      name: 'gender',
+      component: GenderViewVue
     },
     {
       path: '/dashboard',
