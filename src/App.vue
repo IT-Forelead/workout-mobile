@@ -3,17 +3,17 @@ import { onMounted, onUnmounted, ref } from 'vue';
 
 const isMobileDevice = ref<boolean>(false)
 
-const computeWindowResize = () => {
+const computeWindowResize = (): void => {
   isMobileDevice.value = window.innerWidth < 769
 }
 
 window.addEventListener("resize", computeWindowResize)
 
-onMounted(() => {
+onMounted((): void => {
   isMobileDevice.value = window.innerWidth < 769
 })
 
-onUnmounted(() => {
+onUnmounted((): void => {
   window.removeEventListener("resize", computeWindowResize);
 })
 </script>

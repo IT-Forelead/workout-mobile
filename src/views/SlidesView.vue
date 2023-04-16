@@ -6,8 +6,8 @@ const router: Router = useRouter()
 
 const slides = reactive({
   firstSlide: true,
-  secondSlide: true,
-  thirdSlide: true,
+  secondSlide: false,
+  thirdSlide: false,
 })
 
 const nextPage = (next: number) => {
