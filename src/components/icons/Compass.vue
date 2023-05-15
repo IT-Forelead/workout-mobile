@@ -1,0 +1,10 @@
+
+<template>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="#888888" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"><path d="M10.586 10.586L16.95 7.05l-3.536 6.364L7.05 16.95l3.536-6.364Z"></path><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10Z"></path></g></svg>
+</template>
+
+<script>
+export default {
+  name: 'IconoirCompass'
+}
+</script>
