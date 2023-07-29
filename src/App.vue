@@ -1,52 +1,60 @@
-<script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue';
+<script setup>
+import {
+  kApp,
+  kButton,
+  kList, kListItem,
+  kPage,
+  kToggle,
+  kCard
+} from 'konsta/vue';
+import { ref } from 'vue';
+import BottomBar from './components/BottomBar.vue';
+import Navbar from './components/Navbar.vue';
+import Login from './components/Login.vue';
+import QRCode from './components/Dialogs/QRCode.vue';
+const isIosTheme = ref(false)
+const isDark = ref(false)
 
-const isMobileDevice = ref<boolean>(false)
+import { useAuthStore } from './stores/auth.store'
+import { storeToRefs } from 'pinia'
 
-const computeWindowResize = (): void => {
-  isMobileDevice.value = window.innerWidth < 769
-}
-
-window.addEventListener("resize", computeWindowResize)
-
-onMounted((): void => {
-  isMobileDevice.value = window.innerWidth < 769
-})
-
-onUnmounted((): void => {
-  window.removeEventListener("resize", computeWindowResize);
-})
+const { getLoginStatus } = storeToRefs(useAuthStore())
 </script>
 
 <template>
-  <div>
-    <div v-if="isMobileDevice">
-      <router-view v-slot="{ Component, route }">
-        <transition name="slide-fade" mode="out-in">
-          <div :key="route.name || ''">
-            <component :is="Component" />
-          </div>
-        </transition>
-      </router-view>
-    </div>
-    <div v-else class="flex items-center justify-center w-full h-screen text-4xl font-bold text-red-500">
-      This project for only mobile devices
-    </div>
-  </div>
+  <k-app :theme="isIosTheme ? 'ios' : 'material'" :dark="isDark">
+    <k-page v-if="getLoginStatus">
+      <Navbar />
+      <!-- <k-list strong inset>
+        <k-list-item label title="Theme">
+          <template #after>
+            <k-toggle component="div" :checked="isIosTheme === true" @change="() => (isIosTheme = !isIosTheme)" />
+          </template>
+        </k-list-item>
+      </k-list> -->
+      <k-list strong inset>
+        <k-list-item label title="Dark">
+          <template #after>
+            <k-toggle component="div" :checked="isDark === true" @change="() => (isDark = !isDark)" />
+          </template>
+        </k-list-item>
+      </k-list>
+      <div class="flex items-center w-full p-5">
+        <img src="/alpha-sport-urgench-logo.png" alt="Alphasport">
+      </div>
+      <k-card class="text-center">
+        <br>
+        Coming soon...
+        <br>
+        <br>
+      </k-card>
+      <QRCode />
+      <BottomBar :is-dark="isDark" />
+    </k-page>
+    <k-page v-else>
+      <Login />
+    </k-page>
+  </k-app>
 </template>
 
-<style scoped>
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
-
-.slide-fade-leave-active {
-  transition: all 0.1s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  /* opacity: 0; */
-}
-</style>
+<style scoped></style>
