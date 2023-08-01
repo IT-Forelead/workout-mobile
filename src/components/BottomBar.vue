@@ -18,11 +18,8 @@ const { openQRDialog } = useDialogStore();
       <k-tabbar-link label="Home">
         <template #icon>
           <k-icon>
-            <template #ios>
-              <HomeIcon class="w-9 h-9" />
-            </template>
-            <template #material>
-              <HomeIcon class="w-9 h-9" />
+            <template #material :class="'py-0'">
+              <HomeIcon class="w-8 h-8" />
             </template>
           </k-icon>
         </template>
@@ -32,37 +29,30 @@ const { openQRDialog } = useDialogStore();
       <k-tabbar-link label="Store">
         <template #icon>
           <k-icon>
-            <template #ios>
-              <CartIcon class="w-9 h-9" />
-            </template>
             <template #material>
-              <CartIcon class="w-9 h-9" />
+              <CartIcon class="w-8 h-8" />
             </template>
           </k-icon>
         </template>
       </k-tabbar-link>
     </router-link>
-    <k-tabbar-link @click="openQRDialog()">
-      <template #icon>
-        <k-icon class="p-3 rounded-full shadow-xl bg-white">
-          <template #ios>
-            <QRIcon class="w-8 h-8" />
-          </template>
-          <template #material>
-            <QRIcon class="w-8 h-8" />
-          </template>
-        </k-icon>
-      </template>
-    </k-tabbar-link>
+    <div>
+      <k-tabbar-link @click="openQRDialog()">
+        <template #icon>
+          <k-icon class="p-3 bg-white rounded-full shadow-xl">
+            <template #material>
+              <QRIcon class="w-8 h-8" />
+            </template>
+          </k-icon>
+        </template>
+      </k-tabbar-link>
+    </div>
     <router-link to="/reports">
       <k-tabbar-link label="Reports">
         <template #icon>
           <k-icon>
-            <template #ios>
-              <ReportIcon class="w-9 h-9" />
-            </template>
             <template #material>
-              <ReportIcon class="w-9 h-9" />
+              <ReportIcon class="w-8 h-8" />
             </template>
           </k-icon>
         </template>
@@ -72,11 +62,8 @@ const { openQRDialog } = useDialogStore();
       <k-tabbar-link label="Account">
         <template #icon>
           <k-icon>
-            <template #ios>
-              <UserIcon class="w-9 h-9" />
-            </template>
             <template #material>
-              <UserIcon class="w-9 h-9" />
+              <UserIcon class="w-8 h-8" />
             </template>
           </k-icon>
         </template>
@@ -85,4 +72,5 @@ const { openQRDialog } = useDialogStore();
   </k-tabbar>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped>
+</style>
