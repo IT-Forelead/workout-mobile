@@ -13,9 +13,9 @@ import UserIcon from '../icons/UserIcon.vue';
 import { useDialogStore } from '../stores/dialog.store';
 
 const { openQRDialog } = useDialogStore()
-const { isDark } = defineProps({
-  isDark: Boolean
-})
+// const { isDark } = defineProps({
+//   isDark: Boolean
+// })
 </script>
 <template>
   <k-tabbar labels icons class="fixed bottom-0 left-0">
@@ -45,7 +45,7 @@ const { isDark } = defineProps({
     </k-tabbar-link>
     <k-tabbar-link @click="openQRDialog()">
       <template #icon>
-        <k-icon class="p-3 rounded-full shadow-xl" :class="isDark ? 'bg-gray-600' : 'bg-white'">
+        <k-icon class="p-3 rounded-full shadow-xl bg-white">
           <template #ios>
             <QRIcon class="w-8 h-8" />
           </template>

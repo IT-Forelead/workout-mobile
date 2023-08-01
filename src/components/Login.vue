@@ -17,7 +17,7 @@ const { setLogin } = useAuthStore()
     <k-block-title class="text-2xl font-bold text-gray-900">Login Section</k-block-title>
     <div class="flex items-center justify-center">
       <div class="w-full">
-        <div>
+        <div class="list-none mt-5">
           <k-list-input floating-label label="Phone number" type="phone" placeholder="Your phone">
             <template #media>
               <PhoneIcon class="w-7 h-7" />

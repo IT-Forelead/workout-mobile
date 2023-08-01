@@ -22,7 +22,7 @@ const { getLoginStatus } = storeToRefs(useAuthStore())
 </script>
 
 <template>
-  <k-app :theme="isIosTheme ? 'ios' : 'material'" :dark="isDark">
+  <k-app :theme="isIosTheme ? 'ios' : 'material'">
     <k-page v-if="getLoginStatus">
       <Navbar />
       <!-- <k-list strong inset>
@@ -32,13 +32,13 @@ const { getLoginStatus } = storeToRefs(useAuthStore())
           </template>
         </k-list-item>
       </k-list> -->
-      <k-list strong inset>
+      <!-- <k-list strong inset>
         <k-list-item label title="Dark">
           <template #after>
             <k-toggle component="div" :checked="isDark === true" @change="() => (isDark = !isDark)" />
           </template>
         </k-list-item>
-      </k-list>
+      </k-list> -->
       <div class="flex items-center w-full p-5">
         <img src="/alpha-sport-urgench-logo.png" alt="Alphasport">
       </div>
