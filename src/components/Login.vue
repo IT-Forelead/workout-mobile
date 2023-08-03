@@ -4,37 +4,39 @@ import {
   kListInput,
   kBlockTitle
 } from 'konsta/vue';
-import PasswordIcon from '../icons/PasswordIcon.vue'
-import PhoneIcon from '../icons/PhoneIcon.vue'
+import PasswordIcon from '../assets/icons/PasswordIcon.vue'
+import PhoneIcon from '../assets/icons/PhoneIcon.vue'
 import { useAuthStore } from '../stores/auth.store'
+import Register from './Register.vue';
+import { ref } from 'vue';
 
 const { setLogin } = useAuthStore()
-
+const isResterShow = ref(false)
 </script>
 <template>
-  <div class="flex flex-col items-center justify-center w-full h-screen p-5">
+  <div v-if="!isResterShow" class="flex flex-col items-center justify-center w-full h-screen p-5">
     <img src="/alpha-sport-urgench-logo.png" alt="Alphasport" class="w-3/4">
-    <k-block-title class="text-2xl font-bold text-gray-900">Login Section</k-block-title>
-    <div class="flex items-center justify-center">
+    <div class="flex items-center justify-center mt-5">
       <div class="w-full">
-        <div class="list-none mt-5">
-          <k-list-input floating-label label="Phone number" type="phone" placeholder="Your phone">
+        <div class="mt-5 list-none">
+          <k-list-input floating-label :label="$t('phone')" type="phone" placeholder="+998(90) 000-00-00">
             <template #media>
               <PhoneIcon class="w-7 h-7" />
             </template>
           </k-list-input>
-          <k-list-input floating-label label="Password" type="password" placeholder="Your password">
+          <k-list-input floating-label :label="$t('password')" type="password" placeholder="********">
             <template #media>
               <PasswordIcon class="w-8 h-7" />
             </template>
           </k-list-input>
         </div>
         <div class="px-4 mt-10 space-y-5">
-          <k-button tonal :large="true" @click="setLogin(true)">Login</k-button>
-          <!-- <k-button tonal>Register</k-button> -->
+          <k-button tonal :large="true" @click="setLogin(true)">{{ $t('login') }}</k-button>
+          <k-button tonal :large="true" @click="isResterShow = true">{{ $t('registration') }}</k-button>
         </div>
       </div>
     </div>
   </div>
+  <Register v-else />
 </template>
 <style lang="scss" scoped></style>

@@ -4,7 +4,7 @@ import {
   kNavbar,
   kTabbarLink
 } from 'konsta/vue';
-import BellIcon from '../icons/BellIcon.vue';
+import BellIcon from '../assets/icons/BellIcon.vue';
 </script>
 
 <template>

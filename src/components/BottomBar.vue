@@ -1,10 +1,10 @@
 <script setup>
 import { kIcon, kTabbar, kTabbarLink } from "konsta/vue";
-import CartIcon from "../icons/CartIcon.vue";
-import HomeIcon from "../icons/HomeIcon.vue";
-import QRIcon from "../icons/QRIcon.vue";
-import ReportIcon from "../icons/ReportIcon.vue";
-import UserIcon from "../icons/UserIcon.vue";
+import CartIcon from "../assets/icons/CartIcon.vue";
+import HomeIcon from "../assets/icons/HomeIcon.vue";
+import QRIcon from "../assets/icons/QRIcon.vue";
+import ReportIcon from "../assets/icons/ReportIcon.vue";
+import UserIcon from "../assets/icons/UserIcon.vue";
 import { useDialogStore } from "../stores/dialog.store";
 
 const { openQRDialog } = useDialogStore();
