@@ -102,7 +102,10 @@ const sendActivationCode = () => {
 }
 </script>
 <template>
-  <div class="flex flex-col items-center justify-center w-full h-screen p-5">
+  <div
+    class="flex flex-col items-center justify-center w-full h-screen p-5 bg-[url('/welcome.jpg')] bg-cover bg-no-repeat bg-center relative">
+    <div class="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900">
+    </div>
     <img src="/alpha-sport-urgench-logo.png" alt="Alphasport" class="w-3/4">
     <div class="flex items-center justify-center mt-5">
       <div class="w-full">
@@ -141,14 +144,14 @@ const sendActivationCode = () => {
           </div>
         </div>
         <div v-else class="mt-5 list-none">
-          <k-list-input floating-label @input="(e) => submitForm.firstname = e.target.value" :label="$t('firstname')" type="text"
-            placeholder="Karl">
+          <k-list-input floating-label @input="(e) => submitForm.firstname = e.target.value" :label="$t('firstname')"
+            type="text" placeholder="Karl">
             <template #media>
               <InputIcon class="w-7 h-7" />
             </template>
           </k-list-input>
-          <k-list-input floating-label @input="(e) => submitForm.lastname = e.target.value" :label="$t('lastname')" type="text"
-            placeholder="Karl">
+          <k-list-input floating-label @input="(e) => submitForm.lastname = e.target.value" :label="$t('lastname')"
+            type="text" placeholder="Karl">
             <template #media>
               <InputIcon class="w-7 h-7" />
             </template>

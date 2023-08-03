@@ -14,7 +14,10 @@ const { setLogin } = useAuthStore()
 const isResterShow = ref(false)
 </script>
 <template>
-  <div v-if="!isResterShow" class="flex flex-col items-center justify-center w-full h-screen p-5">
+  <div v-if="!isResterShow"
+    class="flex flex-col items-center justify-center w-full h-screen p-5 bg-[url('/welcome.jpg')] bg-cover bg-no-repeat bg-center relative">
+    <div class="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900">
+    </div>
     <img src="/alpha-sport-urgench-logo.png" alt="Alphasport" class="w-3/4">
     <div class="flex items-center justify-center mt-5">
       <div class="w-full">
